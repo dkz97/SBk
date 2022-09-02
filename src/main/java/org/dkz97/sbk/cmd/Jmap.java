@@ -1,12 +1,11 @@
 package org.dkz97.sbk.cmd;
 
 
+import cn.hutool.core.io.file.PathUtil;
 import cn.hutool.core.util.RuntimeUtil;
 import org.dkz97.sbk.common.DateFormatTemp;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -19,7 +18,7 @@ import java.util.List;
  * @version 1.0.0
  * @date 2022/9/2 16:02
  */
-public class JMAP {
+public class Jmap {
 
     /**
      * 返回内存占用直方图 (只有存活对象)
@@ -50,11 +49,9 @@ public class JMAP {
      * @throws IOException IOException
      */
     public static String dlHeapDumpByDirPath(String id, String dirPath) throws IOException {
-        // 判断路径是否存在
-        Path path = Paths.get(dirPath);
-        if (!Files.exists(path)) {
-            Files.createDirectories(path);
-        }
+        // 创建文件夹，若文件夹已经存在则不会创建
+        PathUtil.mkdir(Paths.get(dirPath));
+
         String dateStr = LocalDateTime.now().format(DateTimeFormatter.ofPattern(DateFormatTemp.YYYYMMDDHHMMSS));
         String dumpFilePath = dirPath + dateStr + "_" + id + "_heap.hprof ";
         RuntimeUtil.exec("jmap -dump:format=b,file=" + dumpFilePath + id);

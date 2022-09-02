@@ -18,7 +18,7 @@ public class JPSTest {
     @Test
     void testBuild() throws Exception {
         // java 反射获取 org.dkz97.sbk.cmd.JPS
-        Class<?> clazz = Class.forName("org.dkz97.sbk.cmd.JPS");
+        Class<?> clazz = Class.forName("org.dkz97.sbk.cmd.Jps");
         // 获取方法
         Method buildMethod = clazz.getDeclaredMethod("build", List.class);
         buildMethod.setAccessible(true);

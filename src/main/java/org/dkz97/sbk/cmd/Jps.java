@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
  * @version 1.0.0
  * @date 2022/9/1 15:21
  */
-public class JPS {
+public class Jps {
 
-    private static final Logger log = LoggerFactory.getLogger(JPS.class);
+    private static final Logger log = LoggerFactory.getLogger(Jps.class);
 
 
     public static HashMap<String, JpsStruct> execute() {
