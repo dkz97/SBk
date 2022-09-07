@@ -5,7 +5,6 @@ import cn.hutool.core.io.file.PathUtil;
 import cn.hutool.core.util.RuntimeUtil;
 import org.dkz97.sbk.common.DateFormatTemp;
 
-import java.io.IOException;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -33,9 +32,8 @@ public class Jmap {
      * 导出堆快照，默认将堆快照下载到项目目录的 /dump文件夹下
      * @param id 堆快照id
      * @return 堆快照文件路径
-     * @throws IOException IOException
      */
-    public static String dlHeapDump(String id) throws IOException {
+    public static String dlHeapDump(String id) {
         String folderPath = System.getProperty("user.dir") + "/dump/";
 
         return dlHeapDumpByDirPath(id, folderPath);
@@ -46,9 +44,8 @@ public class Jmap {
      * @param id 进程id
      * @param dirPath 文件夹路径
      * @return 堆快照文件路径
-     * @throws IOException IOException
      */
-    public static String dlHeapDumpByDirPath(String id, String dirPath) throws IOException {
+    public static String dlHeapDumpByDirPath(String id, String dirPath) {
         // 创建文件夹，若文件夹已经存在则不会创建
         PathUtil.mkdir(Paths.get(dirPath));
 

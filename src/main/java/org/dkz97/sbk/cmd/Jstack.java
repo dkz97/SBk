@@ -18,12 +18,23 @@ import java.time.format.DateTimeFormatter;
 public class Jstack {
 
 
+    /**
+     * 将线程堆栈dump到项目目录的 /thread文件夹下
+     * @param id 进程id
+     * @return 线程堆栈文件路径
+     */
     public static String dlThreadDump(String id) {
         String folderPath = System.getProperty("user.dir") + "/thread/";
 
         return dlThreadDumpByDirPath(id, folderPath);
     }
 
+    /**
+     * 将线程堆栈dump到传入的文件夹路径下
+     * @param id 进程id
+     * @param dirPath 文件夹路径
+     * @return 线程堆栈文件路径
+     */
     public static String dlThreadDumpByDirPath(String id, String dirPath) {
         // 创建文件夹，若文件夹已经存在则不会创建
         PathUtil.mkdir(Paths.get(dirPath));
