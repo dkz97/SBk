@@ -1,5 +1,8 @@
 package org.dkz97.sbk.cmd.struct;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.util.List;
 
 /**
@@ -9,6 +12,8 @@ import java.util.List;
  * @version 1.0.0
  * @date 2022/9/1 15:28
  */
+@Data
+@AllArgsConstructor
 public class JpsStruct {
 
     /*   进程ID  */
@@ -20,20 +25,5 @@ public class JpsStruct {
     /*   执行参数  */
     private List<String> parameters;
 
-    public JpsStruct(String processId, String fullName, String className, List<String> parameters) {
-        this.processId = processId;
-        this.fullName = fullName;
-        this.className = className;
-        this.parameters = parameters;
-    }
 
-    @Override
-    public String toString() {
-        return "JpsStruct{" +
-                "processId='" + processId + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", className='" + className + '\'' +
-                ", parameters=" + parameters +
-                '}';
-    }
 }

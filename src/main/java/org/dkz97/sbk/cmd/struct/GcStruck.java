@@ -3,14 +3,14 @@ package org.dkz97.sbk.cmd.struct;
 import lombok.Data;
 
 /**
- * Desc: 堆内存信息的结构体
+ * Desc: 垃圾回收信息的结构体
  *
  * @author dkz97
  * @version 1.0.0
  * @date 2022/9/6 17:20
  */
 @Data
-public class MemoryStruck {
+public class GcStruck {
 
     /* 第一个幸存区的大小 */
     private String S0C;

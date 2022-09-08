@@ -2,7 +2,7 @@ package org.dkz97.sbk.cmd;
 
 import cn.hutool.core.util.RuntimeUtil;
 import org.dkz97.sbk.cmd.struct.ClassStruck;
-import org.dkz97.sbk.cmd.struct.MemoryStruck;
+import org.dkz97.sbk.cmd.struct.GcStruck;
 
 import java.util.List;
 
@@ -41,8 +41,8 @@ public class Jstat {
      * @param id 进程id
      * @return MemoryStruck
      */
-    public static MemoryStruck getMemory(String id) {
-        MemoryStruck result = new MemoryStruck();
+    public static GcStruck getMemory(String id) {
+        GcStruck result = new GcStruck();
         List<String> console = RuntimeUtil.execForLines("jstat -gc " + id);
         if (console.isEmpty() || console.size() < 2) {
             return result;
